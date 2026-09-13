@@ -1,0 +1,841 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bright Future Coaching Classes</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f9fc;
+    color:#222;
+}
+
+/* NAVBAR */
+nav{
+    background:#ffffff;
+    padding:18px 8%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    position:sticky;
+    top:0;
+    z-index:1000;
+    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:bold;
+    color:#2563eb;
+}
+
+nav a{
+    text-decoration:none;
+    color:#333;
+    margin-left:25px;
+    font-weight:500;
+}
+
+nav a:hover{
+    color:#2563eb;
+}
+
+/* HERO */
+.hero{
+    min-height:90vh;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:60px 8%;
+    background:linear-gradient(135deg,#eef5ff,#ffffff);
+}
+
+.hero-text{
+    max-width:600px;
+}
+
+.hero h1{
+    font-size:52px;
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.hero h1 span{
+    color:#2563eb;
+}
+
+.hero p{
+    font-size:19px;
+    line-height:1.7;
+    color:#555;
+    margin-bottom:30px;
+}
+
+.btn{
+    display:inline-block;
+    background:#2563eb;
+    color:white;
+    padding:14px 25px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:bold;
+    margin-right:10px;
+    border:none;
+}
+
+.btn:hover{
+    background:#174bb5;
+}
+
+.btn-outline{
+    background:white;
+    color:#2563eb;
+    border:2px solid #2563eb;
+}
+
+.hero-card{
+    width:380px;
+    padding:40px;
+    background:white;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.12);
+    text-align:center;
+}
+
+.hero-card .book{
+    font-size:90px;
+    margin-bottom:15px;
+}
+
+/* COMMON */
+section{
+    padding:80px 8%;
+}
+
+.section-title{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.section-title h2{
+    font-size:36px;
+    margin-bottom:10px;
+}
+
+.section-title p{
+    color:#666;
+}
+
+/* COURSES */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    transition:0.3s;
+}
+
+.card:hover{
+    transform:translateY(-7px);
+}
+
+.card-icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:12px;
+    font-size:22px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.6;
+}
+
+/* WHY US */
+.why{
+    background:#eef5ff;
+}
+
+.features{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.feature{
+    background:white;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+}
+
+.feature-icon{
+    font-size:40px;
+    margin-bottom:12px;
+}
+
+/* ABOUT */
+.about{
+    display:flex;
+    align-items:center;
+    gap:60px;
+}
+
+.about-text{
+    flex:1;
+}
+
+.about-text h2{
+    font-size:36px;
+    margin-bottom:20px;
+}
+
+.about-text p{
+    line-height:1.8;
+    color:#555;
+    margin-bottom:15px;
+}
+
+.about-box{
+    flex:1;
+    background:#2563eb;
+    color:white;
+    padding:45px;
+    border-radius:20px;
+}
+
+.about-box h3{
+    font-size:30px;
+    margin-bottom:20px;
+}
+
+/* ADMISSION */
+.admission{
+    background:#f0f7ff;
+}
+
+.form{
+    max-width:600px;
+    margin:auto;
+    background:white;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+}
+
+.form input,
+.form select,
+.form textarea{
+    width:100%;
+    padding:14px;
+    margin-bottom:15px;
+    border:1px solid #ddd;
+    border-radius:7px;
+    font-size:15px;
+}
+
+.form button{
+    width:100%;
+    cursor:pointer;
+}
+
+.form button:disabled{
+    opacity:0.6;
+    cursor:not-allowed;
+}
+
+/* SUCCESS MESSAGE */
+.success-message{
+    display:none;
+    margin-top:15px;
+    padding:14px;
+    border-radius:8px;
+    background:#dcfce7;
+    color:#166534;
+    text-align:center;
+    font-weight:bold;
+}
+
+.error-message{
+    display:none;
+    margin-top:15px;
+    padding:14px;
+    border-radius:8px;
+    background:#fee2e2;
+    color:#991b1b;
+    text-align:center;
+    font-weight:bold;
+}
+
+/* CONTACT */
+.contact{
+    text-align:center;
+}
+
+.contact-info{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+}
+
+.contact-box{
+    background:white;
+    padding:25px;
+    min-width:220px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.07);
+}
+
+/* FOOTER */
+footer{
+    background:#111827;
+    color:white;
+    text-align:center;
+    padding:25px;
+}
+
+/* WHATSAPP */
+.whatsapp{
+    position:fixed;
+    right:20px;
+    bottom:20px;
+    background:#25D366;
+    color:white;
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:28px;
+    text-decoration:none;
+    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* MOBILE */
+@media(max-width:800px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    nav a{
+        margin:5px;
+        font-size:14px;
+    }
+
+    .hero{
+        flex-direction:column;
+        text-align:center;
+        gap:40px;
+    }
+
+    .hero h1{
+        font-size:38px;
+    }
+
+    .hero-card{
+        width:100%;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .features{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about{
+        flex-direction:column;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav>
+
+<div class="logo">🎓 Bright Future</div>
+
+<div>
+<a href="#home">Home</a>
+<a href="#courses">Courses</a>
+<a href="#about">About</a>
+<a href="#admission">Admission</a>
+<a href="#contact">Contact</a>
+</div>
+
+</nav>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<h1>
+Build Your
+<span>Bright Future</span>
+With Us
+</h1>
+
+<p>
+Quality coaching, personal attention and regular tests
+to help students achieve better results.
+</p>
+
+<a href="#admission" class="btn">
+Join Now
+</a>
+
+<a href="#courses" class="btn btn-outline">
+View Courses
+</a>
+
+</div>
+
+<div class="hero-card">
+
+<div class="book">📚</div>
+
+<h2>Admissions Open</h2>
+
+<p>
+Classes 5th to 10th<br>
+All Subjects
+</p>
+
+<br>
+
+<strong>Limited Seats Available!</strong>
+
+</div>
+
+</section>
+
+
+<!-- COURSES -->
+<section id="courses">
+
+<div class="section-title">
+
+<h2>Our Courses</h2>
+
+<p>Choose the right course for your child</p>
+
+</div>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">📖</div>
+
+<h3>5th – 7th Standard</h3>
+
+<p>
+Strong foundation in Maths, Science,
+English and other subjects.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🔬</div>
+
+<h3>8th – 9th Standard</h3>
+
+<p>
+Concept-based learning with regular
+tests and doubt solving.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🏆</div>
+
+<h3>10th Board</h3>
+
+<p>
+Board exam preparation, revision,
+practice papers and personal guidance.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- WHY US -->
+<section class="why">
+
+<div class="section-title">
+
+<h2>Why Choose Us?</h2>
+
+<p>Everything students need for better learning</p>
+
+</div>
+
+<div class="features">
+
+<div class="feature">
+<div class="feature-icon">👨‍🏫</div>
+<h3>Expert Teachers</h3>
+<p>Experienced and supportive teachers.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">📝</div>
+<h3>Weekly Tests</h3>
+<p>Regular tests to track progress.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">💡</div>
+<h3>Doubt Solving</h3>
+<p>Individual attention for every student.</p>
+</div>
+
+<div class="feature">
+<div class="feature-icon">🎯</div>
+<h3>Better Results</h3>
+<p>Focused preparation and guidance.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section id="about">
+
+<div class="about">
+
+<div class="about-text">
+
+<h2>About Our Classes</h2>
+
+<p>
+Bright Future Coaching Classes provides
+student-focused education with simple
+concept explanations and regular practice.
+</p>
+
+<p>
+Our goal is to help every student understand
+concepts clearly and perform confidently
+in school and board examinations.
+</p>
+
+</div>
+
+<div class="about-box">
+
+<h3>Our Mission</h3>
+
+<p>
+"Learn Today, Lead Tomorrow."
+</p>
+
+<br>
+
+<p>
+We believe every student can succeed
+with the right guidance, practice and
+consistent effort.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ADMISSION -->
+<section class="admission" id="admission">
+
+<div class="section-title">
+
+<h2>Admission Form</h2>
+
+<p>Register your interest today</p>
+
+</div>
+
+<div class="form">
+
+<input type="text" id="name" placeholder="Student Name">
+
+<input type="text" id="parent" placeholder="Parent Name">
+
+<input type="tel" id="phone" placeholder="Mobile Number">
+
+<select id="standard">
+
+<option value="">Select Standard</option>
+<option>5th Standard</option>
+<option>6th Standard</option>
+<option>7th Standard</option>
+<option>8th Standard</option>
+<option>9th Standard</option>
+<option>10th Standard</option>
+
+</select>
+
+<textarea id="message" rows="4"
+placeholder="Your Message"></textarea>
+
+<button class="btn" id="submitButton" onclick="submitForm()">
+Submit Admission Enquiry
+</button>
+
+<div id="successMessage" class="success-message">
+✅ Your enquiry has been submitted successfully!
+</div>
+
+<div id="errorMessage" class="error-message">
+❌ Something went wrong. Please try again.
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+
+<div class="section-title">
+
+<h2>Contact Us</h2>
+
+<p>We are happy to help you</p>
+
+</div>
+
+<div class="contact-info">
+
+<div class="contact-box">
+
+<h3>📞 Phone</h3>
+
+<p>9876543210</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>📧 Email</h3>
+
+<p>brightfuture@example.com</p>
+
+</div>
+
+<div class="contact-box">
+
+<h3>📍 Address</h3>
+
+<p>Your City, Maharashtra</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<p>
+© 2026 Bright Future Coaching Classes.
+All Rights Reserved.
+</p>
+
+</footer>
+
+
+<!-- WHATSAPP -->
+<a class="whatsapp"
+href="https://wa.me/919876543210"
+target="_blank">
+💬
+</a>
+
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+// ============================================
+// SUPABASE CONFIGURATION
+// ============================================
+
+const SUPABASE_URL = "https://fotbygvdljpfnronyaxf.supabase.co";
+
+const SUPABASE_KEY = "sb_publishable_FrccYZVm8CN7BKuItHrRjA_wuIOLpdS";
+
+const supabaseClient = supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+// ============================================
+// ADMISSION ENQUIRY
+// ============================================
+
+async function submitForm(){
+
+    const name = document.getElementById("name").value.trim();
+    const parent = document.getElementById("parent").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const standard = document.getElementById("standard").value;
+    const message = document.getElementById("message").value.trim();
+
+    const submitButton = document.getElementById("submitButton");
+    const successMessage = document.getElementById("successMessage");
+    const errorMessage = document.getElementById("errorMessage");
+
+
+    // Hide previous messages
+    successMessage.style.display = "none";
+    errorMessage.style.display = "none";
+
+
+    // Validation
+    if(name === "" || phone === "" || standard === ""){
+
+        errorMessage.innerText =
+            "⚠️ Please fill Student Name, Mobile Number and Standard.";
+
+        errorMessage.style.display = "block";
+
+        return;
+    }
+
+
+    // Basic phone validation
+    if(!/^[0-9]{10}$/.test(phone)){
+
+        errorMessage.innerText =
+            "⚠️ Please enter a valid 10-digit mobile number.";
+
+        errorMessage.style.display = "block";
+
+        return;
+    }
+
+
+    // Disable button while submitting
+    submitButton.disabled = true;
+    submitButton.innerText = "Submitting...";
+
+
+    try{
+
+        const { error } = await supabaseClient
+            .from("enquiries")
+            .insert([
+                {
+                    student_name: name,
+                    parent_name: parent,
+                    phone: phone,
+                    standard: standard,
+                    message: message
+                }
+            ]);
+
+
+        if(error){
+
+            console.error("Supabase Error:", error);
+
+            errorMessage.innerText =
+                "❌ Unable to submit enquiry. Please try again.";
+
+            errorMessage.style.display = "block";
+
+            return;
+        }
+
+
+        // Success
+        successMessage.innerText =
+            "✅ Thank you " + name +
+            "! Your admission enquiry has been submitted successfully.";
+
+        successMessage.style.display = "block";
+
+
+        // Clear form
+        document.getElementById("name").value = "";
+        document.getElementById("parent").value = "";
+        document.getElementById("phone").value = "";
+        document.getElementById("standard").value = "";
+        document.getElementById("message").value = "";
+
+    }
+
+    catch(error){
+
+        console.error(error);
+
+        errorMessage.innerText =
+            "❌ Something went wrong. Please try again.";
+
+        errorMessage.style.display = "block";
+
+    }
+
+    finally{
+
+        submitButton.disabled = false;
+        submitButton.innerText = "Submit Admission Enquiry";
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
