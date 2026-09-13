@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Admin Dashboard - Bright Future</title>
+<title>Bright Future | Admin Dashboard</title>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
@@ -24,7 +24,7 @@ body{
     color:#1f2937;
 }
 
-/* LOGIN */
+/* ================= LOGIN ================= */
 
 .login-container{
     min-height:100vh;
@@ -32,43 +32,55 @@ body{
     justify-content:center;
     align-items:center;
     padding:20px;
+    background:linear-gradient(135deg,#eef5ff,#ffffff);
 }
 
 .login-box{
     width:100%;
-    max-width:400px;
+    max-width:410px;
     background:white;
-    padding:35px;
-    border-radius:18px;
-    box-shadow:0 10px 35px rgba(0,0,0,0.10);
+    padding:40px;
+    border-radius:22px;
+    box-shadow:0 15px 45px rgba(0,0,0,0.12);
+}
+
+.login-logo{
+    text-align:center;
+    font-size:42px;
+    margin-bottom:10px;
 }
 
 .login-box h1{
     text-align:center;
     color:#2563eb;
-    margin-bottom:10px;
+    margin-bottom:8px;
 }
 
 .login-box p{
     text-align:center;
     color:#6b7280;
-    margin-bottom:25px;
+    margin-bottom:28px;
 }
 
 .login-box input{
     width:100%;
     padding:14px;
     margin-bottom:15px;
-    border:1px solid #ddd;
-    border-radius:8px;
+    border:1px solid #dbe1ea;
+    border-radius:9px;
     font-size:15px;
+    outline:none;
+}
+
+.login-box input:focus{
+    border-color:#2563eb;
 }
 
 .login-btn{
     width:100%;
     padding:14px;
     border:none;
-    border-radius:8px;
+    border-radius:9px;
     background:#2563eb;
     color:white;
     font-size:16px;
@@ -90,7 +102,7 @@ body{
     text-align:center;
 }
 
-/* DASHBOARD */
+/* ================= DASHBOARD ================= */
 
 .dashboard{
     display:none;
@@ -102,63 +114,204 @@ header{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    box-shadow:0 2px 10px rgba(0,0,0,0.08);
+    box-shadow:0 2px 12px rgba(0,0,0,0.08);
 }
 
 .logo{
-    font-size:24px;
+    font-size:23px;
     font-weight:bold;
     color:#2563eb;
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.admin-email{
+    font-size:13px;
+    color:#6b7280;
 }
 
 .logout{
     background:#ef4444;
     color:white;
     border:none;
-    padding:10px 18px;
+    padding:10px 17px;
     border-radius:7px;
     cursor:pointer;
     font-weight:bold;
 }
 
-.container{
-    padding:40px 6%;
+.logout:hover{
+    background:#dc2626;
 }
 
-/* STATS */
+.container{
+    padding:35px 6%;
+    max-width:1500px;
+    margin:auto;
+}
+
+/* ================= WELCOME ================= */
+
+.welcome{
+    margin-bottom:25px;
+}
+
+.welcome h1{
+    font-size:30px;
+    margin-bottom:6px;
+}
+
+.welcome p{
+    color:#6b7280;
+}
+
+/* ================= STATS ================= */
 
 .stats{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
     margin-bottom:30px;
 }
 
 .stat{
     background:white;
-    padding:25px;
-    border-radius:14px;
-    box-shadow:0 5px 18px rgba(0,0,0,0.07);
+    padding:24px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.06);
+    border-left:5px solid #2563eb;
+}
+
+.stat:nth-child(2){
+    border-left-color:#f59e0b;
+}
+
+.stat:nth-child(3){
+    border-left-color:#10b981;
+}
+
+.stat:nth-child(4){
+    border-left-color:#6366f1;
+}
+
+.stat-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
 }
 
 .stat h3{
     color:#6b7280;
-    font-size:15px;
+    font-size:14px;
     margin-bottom:10px;
+}
+
+.stat-icon{
+    font-size:28px;
 }
 
 .stat strong{
     font-size:32px;
-    color:#2563eb;
+    color:#1f2937;
 }
 
-/* TABLE */
+/* ================= RECENT ================= */
+
+.recent-box{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 5px 18px rgba(0,0,0,0.06);
+    margin-bottom:30px;
+}
+
+.section-heading{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.section-heading h2{
+    font-size:22px;
+}
+
+.refresh-btn{
+    background:#eef5ff;
+    color:#2563eb;
+    border:none;
+    padding:9px 14px;
+    border-radius:7px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.refresh-btn:hover{
+    background:#dbeafe;
+}
+
+.recent-list{
+    display:grid;
+    gap:10px;
+}
+
+.recent-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:14px;
+    background:#f8fafc;
+    border-radius:9px;
+}
+
+.recent-info strong{
+    display:block;
+    margin-bottom:4px;
+}
+
+.recent-info span{
+    color:#6b7280;
+    font-size:13px;
+}
+
+.recent-status{
+    padding:6px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.recent-new{
+    background:#dbeafe;
+    color:#1d4ed8;
+}
+
+.recent-contacted{
+    background:#fef3c7;
+    color:#92400e;
+}
+
+.recent-converted{
+    background:#dcfce7;
+    color:#166534;
+}
+
+.recent-rejected{
+    background:#fee2e2;
+    color:#991b1b;
+}
+
+/* ================= TABLE ================= */
 
 .table-box{
     background:white;
     border-radius:15px;
     padding:25px;
-    box-shadow:0 5px 18px rgba(0,0,0,0.07);
+    box-shadow:0 5px 18px rgba(0,0,0,0.06);
     overflow-x:auto;
 }
 
@@ -171,39 +324,56 @@ header{
 }
 
 .table-header h2{
-    font-size:24px;
+    font-size:22px;
 }
 
 .search{
-    padding:11px;
-    border:1px solid #ddd;
-    border-radius:7px;
-    width:250px;
+    padding:11px 13px;
+    border:1px solid #dbe1ea;
+    border-radius:8px;
+    width:280px;
+    outline:none;
+}
+
+.search:focus{
+    border-color:#2563eb;
 }
 
 table{
     width:100%;
     border-collapse:collapse;
-    min-width:900px;
+    min-width:950px;
 }
 
 th,td{
     padding:14px;
-    border-bottom:1px solid #eee;
+    border-bottom:1px solid #edf0f4;
     text-align:left;
 }
 
 th{
     background:#f8fafc;
     color:#374151;
+    font-size:13px;
 }
 
+td{
+    font-size:14px;
+}
+
+tr:hover td{
+    background:#fafcff;
+}
+
+/* ================= STATUS ================= */
+
 .status{
-    padding:6px 10px;
+    padding:7px 10px;
     border:none;
-    border-radius:6px;
+    border-radius:7px;
     cursor:pointer;
     font-weight:bold;
+    outline:none;
 }
 
 .status-new{
@@ -226,12 +396,14 @@ th{
     color:#991b1b;
 }
 
+/* ================= ACTIONS ================= */
+
 .action{
     display:inline-block;
     padding:7px 10px;
     border-radius:6px;
     text-decoration:none;
-    font-size:13px;
+    font-size:12px;
     font-weight:bold;
     margin:2px;
 }
@@ -255,14 +427,57 @@ th{
 
 .empty{
     text-align:center;
-    padding:30px;
+    padding:35px;
     color:#6b7280;
 }
 
-@media(max-width:800px){
+/* ================= FOOTER ================= */
+
+footer{
+    text-align:center;
+    color:#9ca3af;
+    padding:25px;
+    font-size:13px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:900px){
+
+    .stats{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:650px){
+
+    header{
+        padding:15px 20px;
+    }
+
+    .logo{
+        font-size:18px;
+    }
+
+    .admin-email{
+        display:none;
+    }
+
+    .container{
+        padding:25px 15px;
+    }
+
+    .welcome h1{
+        font-size:24px;
+    }
 
     .stats{
         grid-template-columns:1fr;
+    }
+
+    .stat{
+        padding:20px;
     }
 
     .table-header{
@@ -274,12 +489,13 @@ th{
         width:100%;
     }
 
-    header{
-        padding:15px 20px;
+    .recent-item{
+        align-items:flex-start;
+        gap:10px;
     }
 
-    .logo{
-        font-size:19px;
+    .section-heading{
+        gap:10px;
     }
 
 }
@@ -291,13 +507,15 @@ th{
 <body>
 
 
-<!-- LOGIN -->
+<!-- ================= LOGIN ================= -->
 
 <div class="login-container" id="loginContainer">
 
 <div class="login-box">
 
-<h1>🎓 Bright Future</h1>
+<div class="login-logo">🎓</div>
+
+<h1>Bright Future</h1>
 
 <p>Admin Dashboard Login</p>
 
@@ -314,7 +532,7 @@ placeholder="Password"
 >
 
 <button class="login-btn" onclick="login()">
-Login
+Login to Dashboard
 </button>
 
 <div class="login-error" id="loginError"></div>
@@ -324,9 +542,10 @@ Login
 </div>
 
 
-<!-- DASHBOARD -->
+<!-- ================= DASHBOARD ================= -->
 
 <div class="dashboard" id="dashboard">
+
 
 <header>
 
@@ -334,9 +553,15 @@ Login
 🎓 Bright Future Admin
 </div>
 
+<div class="header-right">
+
+<div class="admin-email" id="adminEmail"></div>
+
 <button class="logout" onclick="logout()">
 Logout
 </button>
+
+</div>
 
 </header>
 
@@ -344,20 +569,27 @@ Logout
 <div class="container">
 
 
-<!-- STATS -->
+<!-- WELCOME -->
 
-<div class="stats">
+<div class="welcome">
 
-<div class="stat">
+<h1>Dashboard Overview 👋</h1>
 
-<h3>Total Enquiries</h3>
-
-<strong id="totalCount">0</strong>
+<p>Manage your admission enquiries and follow up with students.</p>
 
 </div>
 
 
+<!-- ================= STATS ================= -->
+
+<div class="stats">
+
+
 <div class="stat">
+
+<div class="stat-top">
+
+<div>
 
 <h3>New Enquiries</h3>
 
@@ -365,8 +597,37 @@ Logout
 
 </div>
 
+<div class="stat-icon">🔵</div>
+
+</div>
+
+</div>
+
 
 <div class="stat">
+
+<div class="stat-top">
+
+<div>
+
+<h3>Contacted</h3>
+
+<strong id="contactedCount">0</strong>
+
+</div>
+
+<div class="stat-icon">🟠</div>
+
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-top">
+
+<div>
 
 <h3>Converted</h3>
 
@@ -374,21 +635,72 @@ Logout
 
 </div>
 
+<div class="stat-icon">🟢</div>
+
+</div>
+
 </div>
 
 
-<!-- ENQUIRIES -->
+<div class="stat">
+
+<div class="stat-top">
+
+<div>
+
+<h3>Total Enquiries</h3>
+
+<strong id="totalCount">0</strong>
+
+</div>
+
+<div class="stat-icon">📊</div>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+<!-- ================= RECENT ENQUIRIES ================= -->
+
+<div class="recent-box">
+
+<div class="section-heading">
+
+<h2>🕐 Recent Enquiries</h2>
+
+<button class="refresh-btn" onclick="loadEnquiries()">
+↻ Refresh
+</button>
+
+</div>
+
+<div class="recent-list" id="recentList">
+
+<div class="empty">
+Loading recent enquiries...
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= ALL ENQUIRIES ================= -->
 
 <div class="table-box">
 
 <div class="table-header">
 
-<h2>Admission Enquiries</h2>
+<h2>📋 All Admission Enquiries</h2>
 
 <input
 class="search"
 id="searchInput"
-placeholder="Search student / phone..."
+placeholder="🔍 Search student / phone..."
 onkeyup="filterTable()"
 >
 
@@ -417,9 +729,11 @@ onkeyup="filterTable()"
 <tbody id="enquiryTable">
 
 <tr>
+
 <td colspan="8" class="empty">
 Loading enquiries...
 </td>
+
 </tr>
 
 </tbody>
@@ -428,7 +742,16 @@ Loading enquiries...
 
 </div>
 
+
 </div>
+
+
+<footer>
+
+© 2026 Bright Future Coaching Classes • Admin Panel
+
+</footer>
+
 
 </div>
 
@@ -436,7 +759,7 @@ Loading enquiries...
 <script>
 
 /* ==========================================
-   SUPABASE
+   SUPABASE CONFIGURATION
 ========================================== */
 
 const SUPABASE_URL =
@@ -459,15 +782,19 @@ supabase.createClient(
 async function login(){
 
     const email =
-        document.getElementById("email").value.trim();
+        document.getElementById("email")
+        .value
+        .trim();
 
     const password =
-        document.getElementById("password").value;
+        document.getElementById("password")
+        .value;
 
     const errorBox =
         document.getElementById("loginError");
 
     errorBox.style.display = "none";
+
 
     if(email === "" || password === ""){
 
@@ -480,8 +807,9 @@ async function login(){
     }
 
 
-    const { data, error } =
-        await supabaseClient.auth.signInWithPassword({
+    const { error } =
+        await supabaseClient.auth
+        .signInWithPassword({
             email: email,
             password: password
         });
@@ -513,7 +841,8 @@ async function checkUser(){
 
     const {
         data: { session }
-    } = await supabaseClient.auth.getSession();
+    } = await supabaseClient.auth
+    .getSession();
 
 
     if(session){
@@ -529,13 +858,28 @@ async function checkUser(){
    SHOW DASHBOARD
 ========================================== */
 
-function showDashboard(){
+async function showDashboard(){
 
     document.getElementById("loginContainer")
         .style.display = "none";
 
     document.getElementById("dashboard")
         .style.display = "block";
+
+
+    const {
+        data: { user }
+    } = await supabaseClient.auth
+    .getUser();
+
+
+    if(user){
+
+        document.getElementById("adminEmail")
+            .innerText = user.email;
+
+    }
+
 
     loadEnquiries();
 
@@ -547,6 +891,16 @@ function showDashboard(){
 ========================================== */
 
 async function loadEnquiries(){
+
+    document.getElementById("enquiryTable")
+    .innerHTML = `
+    <tr>
+    <td colspan="8" class="empty">
+    Loading enquiries...
+    </td>
+    </tr>
+    `;
+
 
     const { data, error } =
         await supabaseClient
@@ -574,13 +928,15 @@ async function loadEnquiries(){
     }
 
 
-    displayEnquiries(data);
+    displayEnquiries(data || []);
+
+    displayRecent(data || []);
 
 }
 
 
 /* ==========================================
-   DISPLAY
+   DISPLAY STATS + TABLE
 ========================================== */
 
 function displayEnquiries(data){
@@ -591,14 +947,16 @@ function displayEnquiries(data){
     table.innerHTML = "";
 
 
-    document.getElementById("totalCount")
-        .innerText = data.length;
-
-
     const newCount =
         data.filter(item =>
             !item.status ||
             item.status === "New"
+        ).length;
+
+
+    const contactedCount =
+        data.filter(item =>
+            item.status === "Contacted"
         ).length;
 
 
@@ -611,8 +969,14 @@ function displayEnquiries(data){
     document.getElementById("newCount")
         .innerText = newCount;
 
+    document.getElementById("contactedCount")
+        .innerText = contactedCount;
+
     document.getElementById("convertedCount")
         .innerText = convertedCount;
+
+    document.getElementById("totalCount")
+        .innerText = data.length;
 
 
     if(data.length === 0){
@@ -655,20 +1019,30 @@ function displayEnquiries(data){
 
 
         const row =
-        document.createElement("tr");
+            document.createElement("tr");
 
 
         row.innerHTML = `
 
-        <td>${escapeHTML(item.student_name || "-")}</td>
+        <td>
+        ${escapeHTML(item.student_name || "-")}
+        </td>
 
-        <td>${escapeHTML(item.parent_name || "-")}</td>
+        <td>
+        ${escapeHTML(item.parent_name || "-")}
+        </td>
 
-        <td>${escapeHTML(phone)}</td>
+        <td>
+        ${escapeHTML(phone)}
+        </td>
 
-        <td>${escapeHTML(item.standard || "-")}</td>
+        <td>
+        ${escapeHTML(item.standard || "-")}
+        </td>
 
-        <td>${escapeHTML(item.message || "-")}</td>
+        <td>
+        ${escapeHTML(item.message || "-")}
+        </td>
 
         <td>
 
@@ -697,7 +1071,9 @@ function displayEnquiries(data){
 
         </td>
 
-        <td>${date}</td>
+        <td>
+        ${date}
+        </td>
 
         <td>
 
@@ -733,18 +1109,102 @@ function displayEnquiries(data){
 
 
 /* ==========================================
+   RECENT ENQUIRIES
+========================================== */
+
+function displayRecent(data){
+
+    const recentList =
+        document.getElementById("recentList");
+
+
+    recentList.innerHTML = "";
+
+
+    if(data.length === 0){
+
+        recentList.innerHTML = `
+        <div class="empty">
+        No enquiries yet.
+        </div>
+        `;
+
+        return;
+    }
+
+
+    const recent =
+        data.slice(0,5);
+
+
+    recent.forEach(item => {
+
+        const status =
+            item.status || "New";
+
+
+        const statusClass =
+            status.toLowerCase();
+
+
+        const date =
+            item.created_at
+            ? new Date(item.created_at)
+                .toLocaleDateString()
+            : "-";
+
+
+        const div =
+            document.createElement("div");
+
+
+        div.className =
+            "recent-item";
+
+
+        div.innerHTML = `
+
+        <div class="recent-info">
+
+        <strong>
+        ${escapeHTML(item.student_name || "-")}
+        </strong>
+
+        <span>
+        ${escapeHTML(item.standard || "-")}
+        •
+        ${date}
+        </span>
+
+        </div>
+
+        <span class="recent-status recent-${statusClass}">
+        ${escapeHTML(status)}
+        </span>
+
+        `;
+
+
+        recentList.appendChild(div);
+
+    });
+
+}
+
+
+/* ==========================================
    UPDATE STATUS
 ========================================== */
 
-async function updateStatus(id, status){
+async function updateStatus(id,status){
 
     const { error } =
         await supabaseClient
         .from("enquiries")
         .update({
-            status: status
+            status:status
         })
-        .eq("id", id);
+        .eq("id",id);
 
 
     if(error){
@@ -783,7 +1243,7 @@ async function deleteEnquiry(id){
         await supabaseClient
         .from("enquiries")
         .delete()
-        .eq("id", id);
+        .eq("id",id);
 
 
     if(error){
