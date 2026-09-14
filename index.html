@@ -1,12 +1,15 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Bright Future Coaching Classes</title>
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -24,6 +27,7 @@ body{
 }
 
 /* NAVBAR */
+
 nav{
     background:#ffffff;
     padding:18px 8%;
@@ -54,6 +58,7 @@ nav a:hover{
 }
 
 /* HERO */
+
 .hero{
     min-height:90vh;
     display:flex;
@@ -120,6 +125,7 @@ nav a:hover{
 }
 
 /* COMMON */
+
 section{
     padding:80px 8%;
 }
@@ -139,6 +145,7 @@ section{
 }
 
 /* COURSES */
+
 .cards{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -173,6 +180,7 @@ section{
 }
 
 /* WHY US */
+
 .why{
     background:#eef5ff;
 }
@@ -196,6 +204,7 @@ section{
 }
 
 /* ABOUT */
+
 .about{
     display:flex;
     align-items:center;
@@ -231,6 +240,7 @@ section{
 }
 
 /* ADMISSION */
+
 .admission{
     background:#f0f7ff;
 }
@@ -262,6 +272,7 @@ section{
 }
 
 /* CONTACT */
+
 .contact{
     text-align:center;
 }
@@ -282,6 +293,7 @@ section{
 }
 
 /* FOOTER */
+
 footer{
     background:#111827;
     color:white;
@@ -290,6 +302,7 @@ footer{
 }
 
 /* WHATSAPP */
+
 .whatsapp{
     position:fixed;
     right:20px;
@@ -308,6 +321,7 @@ footer{
 }
 
 /* MOBILE */
+
 @media(max-width:800px){
 
     nav{
@@ -346,6 +360,7 @@ footer{
         flex-direction:column;
     }
 }
+
 </style>
 </head>
 
@@ -490,27 +505,43 @@ practice papers and personal guidance.
 <div class="features">
 
 <div class="feature">
+
 <div class="feature-icon">👨‍🏫</div>
+
 <h3>Expert Teachers</h3>
+
 <p>Experienced and supportive teachers.</p>
+
 </div>
 
 <div class="feature">
+
 <div class="feature-icon">📝</div>
+
 <h3>Weekly Tests</h3>
+
 <p>Regular tests to track progress.</p>
+
 </div>
 
 <div class="feature">
+
 <div class="feature-icon">💡</div>
+
 <h3>Doubt Solving</h3>
+
 <p>Individual attention for every student.</p>
+
 </div>
 
 <div class="feature">
+
 <div class="feature-icon">🎯</div>
+
 <h3>Better Results</h3>
+
 <p>Focused preparation and guidance.</p>
+
 </div>
 
 </div>
@@ -579,15 +610,28 @@ consistent effort.
 
 <div class="form">
 
-<input type="text" id="name" placeholder="Student Name">
+<input
+type="text"
+id="name"
+placeholder="Student Name"
+>
 
-<input type="text" id="parent" placeholder="Parent Name">
+<input
+type="text"
+id="parent"
+placeholder="Parent Name"
+>
 
-<input type="tel" id="phone" placeholder="Mobile Number">
+<input
+type="tel"
+id="phone"
+placeholder="Mobile Number"
+>
 
 <select id="standard">
 
 <option value="">Select Standard</option>
+
 <option>5th Standard</option>
 <option>6th Standard</option>
 <option>7th Standard</option>
@@ -597,10 +641,15 @@ consistent effort.
 
 </select>
 
-<textarea id="message" rows="4"
-placeholder="Your Message"></textarea>
+<textarea
+id="message"
+rows="4"
+placeholder="Your Message">
+</textarea>
 
-<button class="btn" onclick="submitForm()">
+<button
+class="btn"
+onclick="submitForm()">
 Submit Admission Enquiry
 </button>
 
@@ -666,35 +715,120 @@ All Rights Reserved.
 
 <!-- WHATSAPP -->
 
-<a class="whatsapp"
+<a
+class="whatsapp"
 href="https://wa.me/919876543210"
 target="_blank">
 💬
 </a>
 
 
+<!-- SUPABASE -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
 <script>
 
-function submitForm(){
+const SUPABASE_URL =
+"https://fotbygvdljpfnronyaxf.supabase.co";
 
-let name = document.getElementById("name").value;
+const SUPABASE_KEY =
+"sb_publishable_FrccYZVm8CN7BKuItHrRjA_wuIOLpdS";
 
-let phone = document.getElementById("phone").value;
-
-let standard = document.getElementById("standard").value;
-
-if(name === "" || phone === "" || standard === ""){
-
-alert("Please fill all required details.");
-
-return;
-
-}
-
-alert(
-"Thank you " + name +
-"! Your admission enquiry has been submitted."
+const supabaseClient =
+supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
 );
+
+
+async function submitForm(){
+
+    const name =
+        document.getElementById("name")
+        .value
+        .trim();
+
+    const parent =
+        document.getElementById("parent")
+        .value
+        .trim();
+
+    const phone =
+        document.getElementById("phone")
+        .value
+        .trim();
+
+    const standard =
+        document.getElementById("standard")
+        .value;
+
+    const message =
+        document.getElementById("message")
+        .value
+        .trim();
+
+
+    if(
+        name === "" ||
+        phone === "" ||
+        standard === ""
+    ){
+
+        alert(
+            "Please fill all required details."
+        );
+
+        return;
+    }
+
+
+    const { data, error } =
+        await supabaseClient
+        .from("enquiries")
+        .insert([
+            {
+                student_name: name,
+                parent_name: parent,
+                phone: phone,
+                standard: standard,
+                message: message
+            }
+        ]);
+
+
+    if(error){
+
+        console.error(
+            "Supabase Error:",
+            error
+        );
+
+        alert(
+            "Enquiry could not be submitted.\n\n" +
+            error.message
+        );
+
+        return;
+    }
+
+
+    alert(
+        "Thank you " +
+        name +
+        "! Your admission enquiry has been submitted."
+    );
+
+
+    document.getElementById("name").value = "";
+
+    document.getElementById("parent").value = "";
+
+    document.getElementById("phone").value = "";
+
+    document.getElementById("standard").value = "";
+
+    document.getElementById("message").value = "";
 
 }
 
@@ -702,3 +836,4 @@ alert(
 
 </body>
 </html>
+```
